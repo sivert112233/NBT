@@ -14,25 +14,26 @@
   <body>
     <header class="fixedTop">
       <p>NBT Trening</p>
+      <div class="navBar">
+        <button id="practice" onclick="sidePro()">Øve på hylleside</button>
+        <button id="location">Lokasjon oversiket</button>
+      </div>
+      <img class="backgroundPic" src="pic/output (4).jpg" alt="backgroundPic">
     </header>
-    <nav class="navBar">
-      <button id="practice" onclick="sidePro()">Øve på hylleside</button>
-      <button id="location">Lokasjon oversiket</button>
-    </nav>
     <main id="mainTest">
       <section class="sideDrilling">
         <div class="proInfo">
           <p id="logo">Hylleside</p>
         </div>
         <div class="bookBoxTop">
-          <p id="bookNumber">BokKode</p>
+          <p id="bookNumber">Bokkode</p>
         </div>
         <div class="bookBoxMiddle">
           <p id="answer">Resultat</p>
         </div>
         <div class="bookBoxBottom">
-          <button id="leftB" onclick="leftAnswer()">Venstere</button>
-          <button id="getBook" onclick="getBook()">Nytt nummer</button>
+          <button id="leftB" onclick="leftAnswer()">Venstre</button>
+          <button id="getBook" onclick="getBook()">Ny Kode</button>
           <button id="rightB" onclick="rightAnswer()">Høyere</button>
         </div>
       </section>
