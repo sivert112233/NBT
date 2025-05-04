@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/page.css">
+    <link rel="stylesheet" href="styles/hylleside.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Arimo:ital,wght@0,400..700;1,400..700&family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Big+Shoulders+Stencil:opsz,wght@10..72,100..900&family=Bilbo+Swash+Caps&family=Cal+Sans&family=Doto:wght@100..900&family=Iceberg&family=Italianno&family=Lavishly+Yours&family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playwrite+BR+Guides&family=Playwrite+MX+Guides&family=Roboto:ital,wght@0,100..900;1,100..900&family=Tektur:wght@400..900&display=swap" rel="stylesheet">
+    <title>NBT Trening</title>
+  </head>
+  <body>
+    <header class="fixedTop">
+      <p>NBT Trening</p>
+    </header>
+    <nav class="navBar">
+      <button id="practice" onclick="sidePro()">Øve på hylleside</button>
+      <button id="location">Lokasjon oversiket</button>
+    </nav>
+    <main id="mainTest">
+      <section class="sideDrilling">
+        <div class="proInfo">
+          <p id="logo">Hylleside</p>
+        </div>
+        <div class="bookBoxTop">
+          <p id="bookNumber">BokKode</p>
+        </div>
+        <div class="bookBoxMiddle">
+          <p id="answer">Resultat</p>
+        </div>
+        <div class="bookBoxBottom">
+          <button id="leftB" onclick="leftAnswer()">Høyere</button>
+          <button id="getBook" onclick="getBook()">Nytt nummer</button>
+          <button id="rightB" onclick="rightAnswer()">Venstere</button>
+        </div>
+      </section>
+    </main>
+    <script src="bookApp.js"></script>
+  </body>
+</html>

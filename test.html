@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test</title>
+    <style>
+      body{
+        box-sizing: border-box;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 16px;
+        margin: 0;
+      }
+      p{
+        margin: 0;
+      }
+      .fixedTop{
+        z-index: 50;
+        position: fixed;
+        top: 0;
+        height: 100px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: lightcoral;
+      }
+      .navBar{
+        position: fixed;
+        top: 100px;
+        left: 0;
+        width: 100px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: lightblue;
+      }
+      #mainTest1{
+        position: absolute;
+        top: 100px;
+        left: 100px;
+        width: 90%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: lightgreen;
+      }
+      #mainTest2{
+        position: absolute;
+        top: 100px;
+        left: 100px;
+        width: 90%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: lightsalmon;
+      }
+      #mainTest3{
+        position: absolute;
+        top: 100px;
+        left: 100px;
+        width: 90%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: lightslategray;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="fixedTop"><p>Test</p></header>
+    <nav class="navBar">
+      <button onclick="pro1()">pro1</button>
+      <button onclick="pro2()">pro2</button>
+      <button onclick="pro3()">pro3</button>
+      <button onclick="reset()">Reset</button>
+    </nav>
+    <main id="mainTest1">Test1</main>
+    <main id="mainTest2">Test2</main>
+    <main id="mainTest3">Test3</main>
+    <script>
+
+      document.getElementById('mainTest1').style.visibility = 'hidden';
+      document.getElementById('mainTest2').style.visibility = 'hidden';
+      document.getElementById('mainTest3').style.visibility = 'hidden';
+    
+        function pro1(){
+          if(document.getElementById('mainTest1').style.visibility == 'hidden'){
+            document.getElementById('mainTest1').style.visibility = 'visible';  
+          }else{
+            return reset();
+          }
+        }
+        function pro2(){
+          if(document.getElementById('mainTest2').style.visibility == 'hidden'){
+            document.getElementById('mainTest2').style.visibility = 'visible';  
+          }else{
+            return reset();
+          }
+        }
+        function pro3(){
+          if(document.getElementById('mainTest3').style.visibility == 'hidden'){
+            document.getElementById('mainTest3').style.visibility = 'visible';  
+          }else{
+            return reset();
+          }
+        } 
+      function reset(){
+        document.getElementById('mainTest1').style.visibility = 'hidden';
+        document.getElementById('mainTest2').style.visibility = 'hidden';
+        document.getElementById('mainTest3').style.visibility = 'hidden';
+      }
+    </script>
+  </body>
+</html>

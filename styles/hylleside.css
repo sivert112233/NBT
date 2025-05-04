@@ -1,0 +1,48 @@
+.sideDrilling{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+
+  height: 100%; /*To change size*/
+  
+  background-color: #d4c9beee;
+}
+.proInfo{
+  background-color: #123458;
+  color: #D4C9BE;
+  width: 95%;
+  padding: 5px 0px;
+}
+.bookBoxTop{
+  background-color: #123458;
+  color: #D4C9BE;
+  width: 95%;
+  padding: 5px 0px;
+}
+.bookBoxMiddle{
+  background-color: #123458;
+  color: #D4C9BE;
+  width: 95%;
+  padding: 5px 0px;
+}
+.bookBoxBottom{
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  width: 95%;
+}
+.bookBoxBottom button{
+  background-color: #123458;
+  color: #D4C9BE;
+  font-size: 1rem;
+
+  border: none;
+  border-radius: 0px 10px 0px 10px;
+}
+
+
+
+
+
