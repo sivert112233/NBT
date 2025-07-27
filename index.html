@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/general.css">
     <link rel="stylesheet" href="styles/page.css">
-    <link rel="stylesheet" href="styles/hylleside.css">
+    <link rel="stylesheet" href="styles/bookGuessing.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Arimo:ital,wght@0,400..700;1,400..700&family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Big+Shoulders+Stencil:opsz,wght@10..72,100..900&family=Bilbo+Swash+Caps&family=Cal+Sans&family=Doto:wght@100..900&family=Iceberg&family=Italianno&family=Lavishly+Yours&family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playwrite+BR+Guides&family=Playwrite+MX+Guides&family=Roboto:ital,wght@0,100..900;1,100..900&family=Tektur:wght@400..900&display=swap" rel="stylesheet">
@@ -13,31 +13,61 @@
   </head>
   <body>
     <header class="fixedTop">
-      <p>NBT Trening</p>
-      <div class="navBar">
-        <button id="practice" onclick="sidePro()">Øve på hylleside</button>
-        <button id="location">Lokasjon oversiket</button>
+      <div class="topContent">
+        <a class="fixedTopLogo" href="http://127.0.0.1:5500/index.html">
+          <img class="logo" href="" src="https://nbt.no/wp-content/uploads/2019/12/ntb-logo-pos-1.svg" alt="NBT">
+        </a>
+        <div class="dropdown">
+          <button class="dropbtn">MENU</button>
+          <div class="dropdown-content">
+            <button class="dropdown-content-buttons" onClick="window.location.reload();">Home</button>
+            <button class="dropdown-content-buttons jsSidePracticePage"> Side øving (Bøker)</button>
+            <button class="dropdown-content-buttons" >Finn lokasjon</button>
+          </div>
+        </div>
       </div>
-      <img class="backgroundPic" src="pic/output (4).jpg" alt="backgroundPic">
     </header>
-    <main id="mainTest">
-      <section class="sideDrilling">
-        <div class="proInfo">
-          <p id="logo">Hylleside</p>
+    <main class="mainTest">
+
+      <section class="bookGuessing">
+        <img class="background-pic" src="./pic/a1.jpg" alt="book-background">
+        <div class="output "> 
+          <div class="output-top">
+            <p class="js-output-book-code">Bok lokasjon</p>
+          </div>
+          <div class="output-bottom js-output-book-code-resulet">
+            <p>Resultat</p>
+          </div>
         </div>
-        <div class="bookBoxTop">
-          <p id="bookNumber">Bokkode</p>
+        <div class="inputs">
+          <div class="input-left">
+            <div class="input-left-bottom">
+              <button class="bookButtons js-bookButtons js-input-button-1" id="bottomLeft">(1)</button>
+            </div>
+            <div class="input-left-top"> 
+              <button class="bookButtons js-bookButtons js-input-button-2" id="topLeftBack">(2)
+              </button>
+              <button class="bookButtons js-bookButtons js-input-button-3" id="topLeftFront">(3)</button>
+            </div>
+          </div>
+          <div class="input-right">
+            <div class="input-right-top">
+              <button class="bookButtons js-bookButtons js-input-button-4" id="topRightBack">(4)</button>
+              <button class="bookButtons js-bookButtons js-input-button-5" id="topRightMiddle">(5)</button>
+              <button class="bookButtons js-bookButtons js-input-button-6" id="topRightFornt">(6)</button>
+            </div>
+            <div class="input-right-bottom">
+              <button class="bookButtons js-bookButtons js-input-button-7" id="bottomRight">(7)</button>
+            </div>
+          </div>
         </div>
-        <div class="bookBoxMiddle">
-          <p id="answer">Resultat</p>
-        </div>
-        <div class="bookBoxBottom">
-          <button id="leftB" onclick="leftAnswer()">Venstre</button>
-          <button id="getBook" onclick="getBook()">Ny Kode</button>
-          <button id="rightB" onclick="rightAnswer()">Høyere</button>
+        <div class="get-book">
+          <button class="get-book-button js-get-book-button">Start</button>
         </div>
       </section>
     </main>
-    <script src="bookApp.js"></script>
+    
+    <script>
+    </script>
   </body>
 </html>

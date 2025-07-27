@@ -1,10 +1,3 @@
-.backgroundPic{
-  z-index: -1;
-  position: absolute;
-  object-fit: cover;
-  height: 100%;
-  width: 100%;
-}
 .sideDrilling{
   display: flex;
   flex-direction: column;
@@ -13,11 +6,11 @@
   text-align: center;
   height: 100%;
   border-radius: 10px;
-  background-color: #D4C9BE;
+  background-color: #5b5b5b;
   box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.343);
 }
 .proInfo{
-  background-color: #123458;
+  background-color: #9E007E;
   color: #F1EFEC;
   width: 80%;
   padding: 10px 0px;
@@ -25,7 +18,7 @@
   border-radius: 10px;
 }
 .bookBoxTop{
-  background-color: #123458;
+  background-color: #9E007E;
   color: #F1EFEC;
   width: 80%;
   padding: 10px 0px;
@@ -33,7 +26,7 @@
   border-radius: 10px;
 }
 .bookBoxMiddle{
-  background-color: #123458;
+  background-color: #9E007E;
   color: #F1EFEC;
   width: 80%;
   padding: 10px 0px;
@@ -47,7 +40,7 @@
   width: 80%;
 }
 .bookBoxBottom button{
-  background-color: #123458;
+  background-color: #9E007E;
   color: #F1EFEC;
   border: none;
   font-size: 1.2rem;
