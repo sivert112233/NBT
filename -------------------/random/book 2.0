@@ -1,0 +1,77 @@
+
+      <section class="bookGuessing">
+        <img class="background-pic" src="./pic/a1.jpg" alt="book-background">
+        <div class="output "> 
+          <div class="output-top">
+            <p class="js-output-book-code">Bok lokasjon</p>
+          </div>
+          <div class="output-bottom js-output-book-code-resulet">
+            <p>Resultat</p>
+          </div>
+        </div>
+        <div class="inputs">
+          <div class="input-left">
+            <div class="input-left-bottom">
+              <button class="bookButtons js-bookButtons js-input-button-1" id="bottomLeft">(1)</button>
+            </div>
+            <div class="input-left-top"> 
+              <button class="bookButtons js-bookButtons js-input-button-2" id="topLeftBack">(2)
+              </button>
+              <button class="bookButtons js-bookButtons js-input-button-3" id="topLeftFront">(3)</button>
+            </div>
+          </div>
+          <div class="input-right">
+            <div class="input-right-top">
+              <button class="bookButtons js-bookButtons js-input-button-4" id="topRightBack">(4)</button>
+              <button class="bookButtons js-bookButtons js-input-button-5" id="topRightMiddle">(5)</button>
+              <button class="bookButtons js-bookButtons js-input-button-6" id="topRightFornt">(6)</button>
+            </div>
+            <div class="input-right-bottom">
+              <button class="bookButtons js-bookButtons js-input-button-7" id="bottomRight">(7)</button>
+            </div>
+          </div>
+        </div>
+        <div class="get-book">
+          <button class="get-book-button js-get-book-button">Start</button>
+        </div>
+      </section>
+
+      <section class="bookGuessing">
+        <img class="background-pic" src="./pic/a1.jpg" alt="book-background">
+        <div class="output "> 
+          <div class="output-top">
+            <p class="js-output-book-code">Bok lokasjon</p>
+          </div>
+          <div class="output-bottom js-output-book-code-resulet">
+            <p>Resultat</p>
+          </div>
+        </div>
+        <div class="inputs">
+          <div class="input-left">
+            <div class="input-left-bottom">
+              <button class="bookButtons js-bookButtons js-input-button-1" id="bottomLeft">(1)</button>
+            </div>
+            <div class="input-left-top"> 
+              <button class="bookButtons js-bookButtons js-input-button-2" id="topLeftBack">(2)
+              </button>
+              <button class="bookButtons js-bookButtons js-input-button-3" id="topLeftFront">(3)</button>
+            </div>
+          </div>
+          <div class="input-right">
+            <div class="input-right-top">
+              <button class="bookButtons js-bookButtons js-input-button-4" id="topRightBack">(4)</button>
+              <button class="bookButtons js-bookButtons js-input-button-5" id="topRightMiddle">(5)</button>
+              <button class="bookButtons js-bookButtons js-input-button-6" id="topRightFornt">(6)</button>
+            </div>
+            <div class="input-right-bottom">
+              <button class="bookButtons js-bookButtons js-input-button-7" id="bottomRight">(7)</button>
+            </div>
+          </div>
+        </div>
+        <div class="get-book">
+          <button class="get-book-button js-get-book-button">Start</button>
+        </div>
+      </section>
+
+
+      <img class="background-pic" src="./pic/a1.jpg" alt="book-background">
