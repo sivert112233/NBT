@@ -10,12 +10,12 @@
   box-shadow:0px 0px 10px 1px #0000006b;
   background-color: #8d0a73;
   border-radius: 3px;
+  padding: 10px;
 }
 .output{
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px;
   border-radius: 3px;
   background-color: #ffffff;
 }
@@ -34,21 +34,32 @@
   height: 50%;
 }
 .inputs{
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  gap: 10px;
-  margin: 10px;  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }      
 .input-left,
 .input-right{
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  height: 90%;
+  width: 48%;
   border-radius: 3px;
   box-shadow:0px 0px 10px 1px #00000035;
   background-color: #ffffff
 }   
+.input-left{
+  rotate: 3deg;
+  transform: skew(3deg);
+}
+.input-right{
+  rotate: -3deg;
+  transform: skew(-3deg);
+}
 .input-left-top,
 .input-left-bottom,
 .input-right-top,
@@ -70,7 +81,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px;
   border-radius: 3px;
   background-color: #ffffff;
 }
