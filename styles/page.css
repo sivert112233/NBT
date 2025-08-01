@@ -20,45 +20,22 @@
 .logo{
   height: 100%;
 }
-.dropdown{
-  position: relative;
-  display: inline-block;
-}
-.dropbtn{
-  background-color: #920075;
-  color: white;
-  padding: 16px;
-  border-radius: 10px;
-  font-size: 1.4cap;
-  border: none;
-}
-.dropdown-content{
-  display: none;
-}
-.dropdown-content-buttons{
-  border: none;
-  background-color: #790562;
-  font-size: 1.4cap;
-  padding: 12px 16px;
-  color: rgb(255, 255, 255);
-}
-.dropdown:hover .dropdown-content{
+.hederChoice{
   display: flex;
-  flex-direction: column;
-  position: absolute;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  right: 0;
-  overflow: hidden;
-  width: 200px;
+  justify-content: space-between;
+  width: 100%;
+
+
+
+  padding: 10px;
+  margin: 20px;
+
+
 }
-.dropdown:hover .dropbtn{
-  background-color: #F2A900;
-  border-radius: 0;
-  transition: 200ms;
+.hederChoiceText{
+
 }
-.dropdown-content-buttons:hover{
-  background-color: #480e3c;
-}
+
 .mainTest{
   z-index: -1;
   position: absolute;

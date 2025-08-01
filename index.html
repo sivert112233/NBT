@@ -15,23 +15,20 @@
     <header class="fixedTop">
       <div class="topContent">
         <a class="fixedTopLogo" href="http://127.0.0.1:5500/index.html">
-          <img class="logo" href="" src="https://nbt.no/wp-content/uploads/2019/12/ntb-logo-pos-1.svg" alt="NBT">
+          <img class="logo" src="https://nbt.no/wp-content/uploads/2019/12/ntb-logo-pos-1.svg" alt="NBT">
         </a>
-        <div class="dropdown">
-          <button class="dropbtn">MENU</button>
-          <div class="dropdown-content">
-            <button class="dropdown-content-buttons" onClick="window.location.reload();">Home</button>
-            <button class="dropdown-content-buttons jsSidePracticePage"> Hyllesystem</button>
-            <button class="dropdown-content-buttons" >Finn</button>
-          </div>
+        <div class="hederChoice">
+          <a class="hederChoiceText" target="_blank" href="https://nbt.no/">NBT Hjemmeside</a>
+          <p class="hederChoiceText" id="valg2">valg 2</p>
+          <a class="hederChoiceText">valg 3</a>
+          <a class="hederChoiceText">valg 4</a>
         </div>
       </div>
     </header>
     <main class="mainTest">
 
       <section class="bookGuessing">
-        
-        <div class="output "> 
+        <div class="output"> 
           <div class="output-top">
             <p class="js-output-book-code">Bok lokasjon</p>
           </div>
@@ -39,10 +36,6 @@
             <p>Resultat</p>
           </div>
         </div>
-
-
-
-  
         <div class="inputs">
           <div class="input-left">
             <p>Vestere Side</p>
@@ -66,16 +59,12 @@
             </div>
           </div>
         </div>
-
-
-
-
         <div class="get-book">
           <button class="get-book-button js-get-book-button">Start</button>
         </div>
       </section>
 
-
+      
     </main>
     <script type="module" src="scripts/index.js"></script>
   </body>

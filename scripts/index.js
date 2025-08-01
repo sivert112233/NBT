@@ -5,6 +5,17 @@ const bookGame = new GuessBookLoacation();
 const buttonColor = new ButtonColor();
 let answer = true;
 
+
+
+
+
+
+
+
+
+
+
+
 document.querySelector('.js-get-book-button').addEventListener('click', () => { 
   answer = false;
 
@@ -34,5 +45,4 @@ document.querySelectorAll('.js-bookButtons').forEach((button) => {
     }
   });
 });
-
    
