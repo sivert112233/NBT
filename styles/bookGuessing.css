@@ -4,12 +4,9 @@
   display: grid;
   grid-template-rows: 1.1fr 4fr 1fr;
   height: 95%;
-  margin: 10px;
   min-height: 500px;
   max-width: 600px;
-  box-shadow:0px 0px 10px 1px #0000006b;
   background-color: #8d0a73;
-  border-radius: 3px;
   padding: 10px;
 }
 .output{
