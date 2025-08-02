@@ -16,7 +16,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 3px;
   background-color: #ffffff;
 }
 .output-top{
@@ -24,7 +23,6 @@
   justify-content: space-evenly;
   align-items: center;
   height: 50%;
-
 } 
 .output-bottom{
   display: flex;
@@ -35,9 +33,10 @@
 }
 .inputs{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  background-color: light;
 }      
 .input-left,
 .input-right{
@@ -46,20 +45,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  height: 90%;
-  width: 48%;
-  border-radius: 3px;
+  height: 45%;
+  width: 100%;
+
   box-shadow:0px 0px 10px 1px #00000035;
-  background-color: #ffffff
+  background-color: #ffffff;
+  overflow: hidden;
 }   
-.input-left{
-  rotate: 3deg;
-  transform: skew(3deg);
-}
-.input-right{
-  rotate: -3deg;
-  transform: skew(-3deg);
-}
+
 .input-left-top,
 .input-left-bottom,
 .input-right-top,
@@ -81,7 +74,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 3px;
   background-color: #ffffff;
 }
 .bookButtons{
@@ -92,6 +84,7 @@
   color: #000000;
   border: 0;
 }
+
 .bookButtons:hover{
   background-color: #c78b00;
 }

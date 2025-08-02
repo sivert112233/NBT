@@ -22,21 +22,24 @@
 }
 .hederChoice{
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   width: 100%;
-
-
-
   padding: 10px;
   margin: 20px;
-
-
 }
 .hederChoiceText{
-
+  background-color: #8d0a73;
+  color: rgb(255, 255, 255);
+  padding: 10px 15px;
+  text-decoration: none;
+  text-align: center;
 }
-
-.mainTest{
+.hederChoiceText:hover{
+  transition: .3s;
+  color: #8d0a73;
+  background-color: #ffffff;
+}
+.main{
   z-index: -1;
   position: absolute;
   width: 100%;
