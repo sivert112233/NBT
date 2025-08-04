@@ -116,7 +116,7 @@ export function shelfLocation() {
           </div>
           <div class="input-left-top">
             <button class="bookButtons bookButtonsL js-bookButtons" id="topLeftBack">53-04</button>
-            <button class="bookButtons bookButtonsL js-bookButtons" id="topLeftFront">53-05 (Ti/To)</button>
+            <button class="bookButtons bookButtonsL js-bookButtons" id="topLeftFront">53-05(Ti/To)</button>
           </div>
           <div class="input-left-bottom"> 
             <button class="bookButtons bookButtonsL js-bookButtons" id="bottomLeft">53-01</button>
@@ -127,9 +127,9 @@ export function shelfLocation() {
             <p>Høyere Side</p>
           </div>
           <div class="input-right-top">
-            <button class="bookButtons bookButtonsR js-bookButtons" id="topRightFornt">53-02 (Ti/To)</button>
-            <button class="bookButtons bookButtonsR js-bookButtons" id="topRightMiddle">53-03 (Ti/Fr)</button>
-            <button class="bookButtons bookButtonsR js-bookButtons" id="topRightBack">53-03 (On/Fr)</button>
+            <button class="bookButtons bookButtonsR js-bookButtons" id="topRightFornt">53-02(Ti/To)</button>
+            <button class="bookButtons bookButtonsR js-bookButtons" id="topRightMiddle">53-03(Ti/Fr)</button>
+            <button class="bookButtons bookButtonsR js-bookButtons" id="topRightBack">53-03(On/Fr)</button>
           </div>
           <div class="input-right-bottom">
             <button class="bookButtons bookButtonsR js-bookButtons" id="bottomRight">53-02</button>
@@ -161,7 +161,7 @@ export function shelfLocation() {
       document.querySelectorAll('.js-bookButtons').forEach((button) => {
         buttonColor.resetColor(button.id);
       });
-      document.querySelector('.js-get-book-box').innerHTML = rendomBook;
+      document.querySelector('.js-get-book-box').innerHTML = rendomBook.toString().replace(/\B(?=(\d{4})+(?!\d))/g, " ");
     });  
   }; 
   addEventListenerToGetCodeButton();

@@ -1,3 +1,6 @@
 import {shelfLocation} from "./guessLocation.js";
 
-  shelfLocation();
+document.querySelector('.begin').addEventListener('click', () => {
+  shelfLocation();  
+});
+
