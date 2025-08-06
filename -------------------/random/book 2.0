@@ -119,4 +119,46 @@
 }
 .dropdown-content-buttons:hover{
   background-color: #480e3c;
+}/*
+<div class="output-top">
+  <p class="js-output-book-code">Bok lokasjon</p>
+</div>
+     
+document.querySelectorAll('.js-bookButtons').forEach((buttons) => {
+  buttonColor.resetColor(buttons.id);
+});
+class Score {
+  constructor() {
+    this.right = 0;
+    this.wrong = 0; 
+  }
+  addRight() {
+    this.right += 1;
+  }
+  addWrong() {
+    this.wrong += 1;
+  }
+  resetScore() {
+    this.right = 0;
+    this.wrong= 0;
+  }
+  displayHTML(){
+    return document.querySelector('.js-output-book-code-resulet').innerHTML = `
+    <p>Riktig: ${this.right}</p>
+    <p>Feil: ${this.wrong}</p>
+    `;
+  }
 }
+  class ButtonColor {
+  addColor(buttonId, answer) {
+    if (answer){
+      document.getElementById(buttonId).classList.add("bookButtonsRight");
+    }else{
+      document.getElementById(buttonId).classList.add("bookButtonsWrong");
+    }
+  }
+  resetColor(buttonId) {
+    document.getElementById(buttonId).classList.remove('bookButtonsWrong');document.getElementById(buttonId).classList.remove('bookButtonsRight');
+  }
+}
+*/
