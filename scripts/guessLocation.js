@@ -1,13 +1,44 @@
 import { BookLocationCodes } from "./books.js";
 
+const allBooks = new BookLocationCodes().allBooks;
 
-export class GuessBookLoacation {
+class GuessShelfLocation{
+  constructor() {
+    this.rightGuesses = 0;
+    this.wrongGuesses = 0; 
+  }
+  
+  guessScore(guess) {
+    if (guess){
+      this.rightGuesses += 1;
+    }else{
+      this.wrongGuesses += 1;
+    }
+  }
+
+  resetScore() {
+    this.rightGuesses = 0;
+    this.wrongGuesses = 0; 
+  }
+
+  getCurrentScore() {
+    console.log(this.rightGuesses);
+    console.log(this.wrongGuesses);
+  }
+
+  displayScore(){
+    return document.querySelector('.js-output-book-code-resulet').innerHTML = `
+    <p>Riktig: ${this.rightGuesses}</p>
+    <p>Feil: ${this.wrongGuesses}</p>
+    `;
+  }
+
   getRandomBook(){
-    const allBooks = new BookLocationCodes().allBooks;
     let rendomBookCode = allBooks[Math.floor(Math.random() * allBooks.length)];
     allBooks.splice(allBooks.indexOf(rendomBookCode),1);
+    console.log(rendomBookCode);
     return rendomBookCode;
-  };
+  }
 
   guessBook(rendomBook, locationGuesst) {
     let result = false;
@@ -49,66 +80,32 @@ export class GuessBookLoacation {
     }
     return resulet; 
   }
-}
 
-export class Score {
-  constructor() {
-    this.right = 0;
-    this.wrong = 0; 
-  }
-
-  addRight() {
-    this.right += 1;
-  }
-
-  addWrong() {
-    this.wrong += 1;
-  }
-
-  resetScore() {
-    this.right = 0;
-    this.wrong= 0;
-  }
-
-  getCurrentScore() {
-    return console.log(this);
-  }
-
-  displayHTML(){
-    return document.querySelector('.js-output-book-code-resulet').innerHTML = `
-    <p>Riktig: ${this.right}</p>
-    <p>Feil: ${this.wrong}</p>
-    `;
-  }
-}
-
-export class ButtonColor {
-  addColor(buttonId, answer) {
+  addColorToButtons(buttonId, answer) {
     if (answer){
       document.getElementById(buttonId).classList.add("bookButtonsRight");
     }else{
       document.getElementById(buttonId).classList.add("bookButtonsWrong");
     }
   }
-  resetColor(buttonId) {
-    document.getElementById(buttonId).classList.remove('bookButtonsWrong');document.getElementById(buttonId).classList.remove('bookButtonsRight');
+
+  removeColoreFromButtons(buttonId) {
+    document.getElementById(buttonId).classList.remove('bookButtonsWrong');
+    document.getElementById(buttonId).classList.remove('bookButtonsRight');
   }
 }
 
 
+
+
+
+
 export function shelfLocation() {
   document.querySelector('main').innerHTML = `
-
-
-
-
     <section class="bookGuessing">
       <div class="output js-output-book-code-resulet"> 
         <p>Hyllelokasjon</p>
       </div>
-
-
-
       <div class="inputs">
         <div class="input-left">
           <div class="degText">
@@ -136,55 +133,55 @@ export function shelfLocation() {
           </div>
         </div>
       </div>
-
-
-
       <div class="get-book-box js-get-book-box">
         <button class="get-book-button js-get-book-button">Få Kode</button>
       </div>
-
-
-
     </section>
   `;
-
   let rendomBook; 
-  const score = new Score();
-  const bookGame = new GuessBookLoacation();
-  const buttonColor = new ButtonColor();
   let noCodeIsChosen = true;
+  const bookGame = new GuessShelfLocation();
+
 
   function addEventListenerToGetCodeButton() {
     document.querySelector('.js-get-book-button').addEventListener('click', () => { 
       noCodeIsChosen = false;
       rendomBook = bookGame.getRandomBook();
       document.querySelectorAll('.js-bookButtons').forEach((button) => {
-        buttonColor.resetColor(button.id);
+
+        bookGame.removeColoreFromButtons(button.id);
+
       });
-      document.querySelector('.js-get-book-box').innerHTML = rendomBook.toString().replace(/\B(?=(\d{4})+(?!\d))/g, " ");
+      if (rendomBook){
+        document.querySelector('.js-get-book-box').innerHTML = rendomBook.toString().replace(/\B(?=(\d{4})+(?!\d))/g, " ");  
+      }else{
+        document.querySelector('.js-get-book-box').innerHTML = 'Fullføret';
+      }
     });  
   }; 
   addEventListenerToGetCodeButton();
 
   document.querySelectorAll('.js-bookButtons').forEach((button) => {
     button.addEventListener('click', () => {
-
       if (noCodeIsChosen){
         alert('Velg Ny Kode.');
       }else{
         let guess = bookGame.guessBook(rendomBook, bookGame.
         getLocation(button.id));
         if (guess){
-          score.addRight();
-          buttonColor.addColor(button.id, guess);
+          bookGame.guessScore(guess);
+
+          bookGame.addColorToButtons(button.id, guess);
+
           document.querySelector('.js-get-book-box').innerHTML = `<button class="get-book-button js-get-book-button">Ny Kode</button>`;
           addEventListenerToGetCodeButton(); //render again.
           noCodeIsChosen = true;
         }else{
-          score.addWrong();
-          buttonColor.addColor(button.id, guess);
+          bookGame.guessScore(guess);
+
+          bookGame.addColorToButtons(button.id, guess);
         }
-        score.displayHTML();
+        bookGame.displayScore();
       }
     });
   });
@@ -192,15 +189,50 @@ export function shelfLocation() {
 
 
 
+
+
+
+
 /*
-        <div class="output-top">
-          <p class="js-output-book-code">Bok lokasjon</p>
-        </div>
-
-
-            
-    document.querySelectorAll('.js-bookButtons').forEach((buttons) => {
-      buttonColor.resetColor(buttons.id);
-    });
-
+<div class="output-top">
+  <p class="js-output-book-code">Bok lokasjon</p>
+</div>
+     
+document.querySelectorAll('.js-bookButtons').forEach((buttons) => {
+  buttonColor.resetColor(buttons.id);
+});
+class Score {
+  constructor() {
+    this.right = 0;
+    this.wrong = 0; 
+  }
+  addRight() {
+    this.right += 1;
+  }
+  addWrong() {
+    this.wrong += 1;
+  }
+  resetScore() {
+    this.right = 0;
+    this.wrong= 0;
+  }
+  displayHTML(){
+    return document.querySelector('.js-output-book-code-resulet').innerHTML = `
+    <p>Riktig: ${this.right}</p>
+    <p>Feil: ${this.wrong}</p>
+    `;
+  }
+}
+  class ButtonColor {
+  addColor(buttonId, answer) {
+    if (answer){
+      document.getElementById(buttonId).classList.add("bookButtonsRight");
+    }else{
+      document.getElementById(buttonId).classList.add("bookButtonsWrong");
+    }
+  }
+  resetColor(buttonId) {
+    document.getElementById(buttonId).classList.remove('bookButtonsWrong');document.getElementById(buttonId).classList.remove('bookButtonsRight');
+  }
+}
 */
