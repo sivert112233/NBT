@@ -132,14 +132,18 @@ export class GuessShelfLocation{
         </div>
       </section>
     `;
-
     
     let rendomBook; 
     let noCodeIsChosen = true;
-    const bookGame = new GuessShelfLocation();
 
+
+
+
+
+    
 
     function addEventListenerToGetCodeButton() {
+      const bookGame = new GuessShelfLocation();
       document.querySelector('.js-get-book-button').addEventListener('click', () => { 
         noCodeIsChosen = false;
         rendomBook = bookGame.getRandomBook();
@@ -155,34 +159,45 @@ export class GuessShelfLocation{
         }
       });  
     }; 
+    
     addEventListenerToGetCodeButton();
+
+
+
+
 
     document.querySelectorAll('.js-bookButtons').forEach((button) => {
       button.addEventListener('click', () => {
         if (noCodeIsChosen){
           alert('Velg Ny Kode.');
         }else{
-          let guess = bookGame.guessBook(rendomBook, bookGame.
-          getLocation(button.id));
+          let guess = this.guessBook(rendomBook, this.getLocation(button.id));
           if (guess){
-            bookGame.guessScore(guess);
+            this.guessScore(guess);
 
-            bookGame.addColorToButtons(button.id, guess);
+            this.addColorToButtons(button.id, guess);
 
             document.querySelector('.js-get-book-box').innerHTML = `<button class="get-book-button js-get-book-button">Ny Kode</button>`;
+
+            
             addEventListenerToGetCodeButton(); //render again.
+
             noCodeIsChosen = true;
           }else{
-            bookGame.guessScore(guess);
+            this.guessScore(guess);
 
-            bookGame.addColorToButtons(button.id, guess);
+            this.addColorToButtons(button.id, guess);
           }
-          bookGame.displayScore();
+          this.displayScore();
         }
       });
     });
-  }
 
+
+
+
+
+  }
 }
 
 
