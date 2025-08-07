@@ -8,7 +8,7 @@ export class GuessShelfLocation{
     this.wrongGuesses = 0; 
   }
   
-  guessScore(guess) {
+  setScore(guess) {
     if (guess){
       this.rightGuesses += 1;
     }else{
@@ -31,23 +31,6 @@ export class GuessShelfLocation{
     <p>Riktig: ${this.rightGuesses}</p>
     <p>Feil: ${this.wrongGuesses}</p>
     `;
-  }
-
-  getRandomBook(){
-    let rendomBookCode = allBooks[Math.floor(Math.random() * allBooks.length)];
-    allBooks.splice(allBooks.indexOf(rendomBookCode),1);
-    console.log(rendomBookCode);
-    return rendomBookCode;
-  }
-
-  guessBook(rendomBook, locationGuesst) {
-    let result = false;
-    locationGuesst.forEach((locationGuesst) => {rendomBook === locationGuesst && (result = 1)});
-    if (result){
-      return true;
-    }else{
-      return false;
-    }
   }
 
   getLocation(button) {
@@ -93,8 +76,7 @@ export class GuessShelfLocation{
     document.getElementById(buttonId).classList.remove('bookButtonsWrong');
     document.getElementById(buttonId).classList.remove('bookButtonsRight');
   }
-
-  run() {
+  html() {
     document.querySelector('main').innerHTML = `
       <section class="bookGuessing">
         <div class="output js-output-book-code-resulet"> 
@@ -132,71 +114,54 @@ export class GuessShelfLocation{
         </div>
       </section>
     `;
-    
+  }
+
+  runCodeAndRenderPage() {
+    this.html();
     let rendomBook; 
     let noCodeIsChosen = true;
 
-
-
-
-
-    
-
     function addEventListenerToGetCodeButton() {
-      const bookGame = new GuessShelfLocation();
       document.querySelector('.js-get-book-button').addEventListener('click', () => { 
-        noCodeIsChosen = false;
-        rendomBook = bookGame.getRandomBook();
+        const output = document.querySelector('.js-get-book-box');
+        noCodeIsChosen = false; 
+        rendomBook = allBooks[Math.floor(Math.random() * allBooks.length)];
+        allBooks.splice(allBooks.indexOf(rendomBook),1);
         document.querySelectorAll('.js-bookButtons').forEach((button) => {
-
-          bookGame.removeColoreFromButtons(button.id);
-
+          new GuessShelfLocation().removeColoreFromButtons(button.id); //--?--//
         });
-        if (rendomBook){
-          document.querySelector('.js-get-book-box').innerHTML = rendomBook.toString().replace(/\B(?=(\d{4})+(?!\d))/g, " ");  
-        }else{
-          document.querySelector('.js-get-book-box').innerHTML = 'Fullføret';
-        }
+        rendomBook ?
+          output.innerHTML = rendomBook.toString().replace(/\B(?=(\d{4})+(?!\d))/g, " ")
+          :
+          output.innerHTML = 'Fullføret'
+        ;
       });  
-    }; 
-    
-    addEventListenerToGetCodeButton();
-
-
-
-
+    }addEventListenerToGetCodeButton();
 
     document.querySelectorAll('.js-bookButtons').forEach((button) => {
       button.addEventListener('click', () => {
         if (noCodeIsChosen){
           alert('Velg Ny Kode.');
         }else{
-          let guess = this.guessBook(rendomBook, this.getLocation(button.id));
+          let guess = false; 
+          this.getLocation(button.id).forEach((i) => {
+            return rendomBook === i && (guess = true);
+          });
+
           if (guess){
-            this.guessScore(guess);
-
+            this.setScore(guess);
             this.addColorToButtons(button.id, guess);
-
             document.querySelector('.js-get-book-box').innerHTML = `<button class="get-book-button js-get-book-button">Ny Kode</button>`;
-
-            
-            addEventListenerToGetCodeButton(); //render again.
-
+            addEventListenerToGetCodeButton();
             noCodeIsChosen = true;
           }else{
-            this.guessScore(guess);
-
+            this.setScore(guess);
             this.addColorToButtons(button.id, guess);
           }
           this.displayScore();
         }
       });
     });
-
-
-
-
-
   }
 }
 
