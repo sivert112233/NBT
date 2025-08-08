@@ -118,12 +118,14 @@ export class GuessShelfLocation{
 
   runCodeAndRenderPage() {
     this.html();
-    let rendomBook; 
+    let guess = false; 
+    let rendomBook = undefined; 
     let noCodeIsChosen = true;
 
     function addEventListenerToGetCodeButton() {
       document.querySelector('.js-get-book-button').addEventListener('click', () => { 
         const output = document.querySelector('.js-get-book-box');
+        guess = false;
         noCodeIsChosen = false; 
         rendomBook = allBooks[Math.floor(Math.random() * allBooks.length)];
         allBooks.splice(allBooks.indexOf(rendomBook),1);
@@ -141,25 +143,31 @@ export class GuessShelfLocation{
     document.querySelectorAll('.js-bookButtons').forEach((button) => {
       button.addEventListener('click', () => {
         if (noCodeIsChosen){
-          alert('Velg Ny Kode.');
-        }else{
-          let guess = false; 
-          this.getLocation(button.id).forEach((i) => {
-            return rendomBook === i && (guess = true);
-          });
-
-          if (guess){
-            this.setScore(guess);
-            this.addColorToButtons(button.id, guess);
-            document.querySelector('.js-get-book-box').innerHTML = `<button class="get-book-button js-get-book-button">Ny Kode</button>`;
-            addEventListenerToGetCodeButton();
-            noCodeIsChosen = true;
-          }else{
-            this.setScore(guess);
-            this.addColorToButtons(button.id, guess);
-          }
-          this.displayScore();
+          return alert('Velg Ny Kode.');
         }
+
+
+        this.getLocation(button.id).forEach((i) => {
+          if (rendomBook === i) {
+            return guess = true;
+          };
+        });
+
+        if (guess){
+          this.setScore(guess);
+          this.addColorToButtons(button.id, guess);
+          document.querySelector('.js-get-book-box').innerHTML = `<button class="get-book-button js-get-book-button">Ny Kode</button>`;
+          addEventListenerToGetCodeButton();
+          noCodeIsChosen = true
+        }else{
+          if (button.classList.contains('bookButtonsWrong')) {
+            return alert('Du har allerede gjettet denne lokasjonen. Prøv en lokasjon som ikke er rød.')
+          }
+            this.setScore(guess);
+            this.addColorToButtons(button.id, guess);
+          
+        }
+        this.displayScore();
       });
     });
   }
