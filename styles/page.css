@@ -9,9 +9,10 @@
 .topContent{
   display: flex;
   height: 100%;
+  gap: 10px;
   justify-content: space-between;
   align-items: center;
-  padding-left: 10px;
+  padding-left: 20px;
   padding-right: 10px;
 }
 .fixedTopLogo{
@@ -20,16 +21,10 @@
 .logo{
   height: 100%;
 }
-.hederChoice{
-  display: flex;
-  justify-content: end;
-  width: 100%;
-  padding: 10px;
-  margin: 20px;
-}
 .hederChoiceText{
   background-color: #8d0a73;
   color: rgb(255, 255, 255);
+  width: 100%;
   padding: 10px 15px;
   text-decoration: none;
   text-align: center;
