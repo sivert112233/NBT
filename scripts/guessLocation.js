@@ -1,7 +1,5 @@
 import { BookLocationCodes } from "./books.js";
 
-const allBooks = new BookLocationCodes().allBooks;
-
 export class GuessShelfLocation{
   constructor() {
     this.rightGuesses = 0;
@@ -76,7 +74,7 @@ export class GuessShelfLocation{
     document.getElementById(buttonId).classList.remove('bookButtonsWrong');
     document.getElementById(buttonId).classList.remove('bookButtonsRight');
   }
-  html() {
+  htmlGuessing() {
     document.querySelector('main').innerHTML = `
       <section class="bookGuessing">
         <div class="output js-output-book-code-resulet"> 
@@ -115,28 +113,64 @@ export class GuessShelfLocation{
       </section>
     `;
   }
+  htmlResult() {
+    document.querySelector('main').innerHTML = `
+      <section class="bookGuessing">
+        <div class="output "> 
+          <p>Hyllelokasjon er fullført</p>
+        </div>
+        <div class="inputs">
+          <div class="input-left">
+            <div class="degText">
+              <p><
+                Du har gjettet alle kodene.<br>
+                Se resultate dit i boksen under.<br>
+                Prøv igjen med og trykke på (Start på nytt).
+              </p>
+            </div>
+          </div>
+          <div class="input-right">
+            <div class="degText">
+              <p>Resultat</p>
+            </div>
+            <div class="resultDisplay js-output-book-code-resulet">
+            </div>
+          </div>
+        </div>
+        <div class="get-book-box js-get-book-box">
+          <button class="get-book-button js-get-book-button">Start på nytt</button>
+        </div>
+      </section>
+    `;
+  }
+
+
 
   runCodeAndRenderPage() {
-    this.html();
+    this.htmlGuessing();
     let guess = false; 
-    let rendomBook = undefined; 
+    let randomBook = undefined; 
     let noCodeIsChosen = true;
+    const allBooks = new BookLocationCodes().allBooks;
 
     function addEventListenerToGetCodeButton() {
       document.querySelector('.js-get-book-button').addEventListener('click', () => { 
         const output = document.querySelector('.js-get-book-box');
         guess = false;
         noCodeIsChosen = false; 
-        rendomBook = allBooks[Math.floor(Math.random() * allBooks.length)];
-        allBooks.splice(allBooks.indexOf(rendomBook),1);
+        randomBook = allBooks[Math.floor(Math.random() * allBooks.length)];
+        allBooks.splice(allBooks.indexOf(randomBook),1);
+
+  
+
         document.querySelectorAll('.js-bookButtons').forEach((button) => {
           new GuessShelfLocation().removeColoreFromButtons(button.id); //--?--//
         });
-        rendomBook ?
-          output.innerHTML = rendomBook.toString().replace(/\B(?=(\d{4})+(?!\d))/g, " ")
-          :
-          output.innerHTML = 'Fullføret'
-        ;
+        if (randomBook) {
+          output.innerHTML = randomBook.toString().replace(/\B(?=(\d{4})+(?!\d))/g, " ");
+        }else{
+          output.innerHTML = 'Fullføret';
+        }
       });  
     }addEventListenerToGetCodeButton();
 
@@ -148,7 +182,7 @@ export class GuessShelfLocation{
 
 
         this.getLocation(button.id).forEach((i) => {
-          if (rendomBook === i) {
+          if (randomBook === i) {
             return guess = true;
           };
         });
@@ -160,15 +194,29 @@ export class GuessShelfLocation{
           addEventListenerToGetCodeButton();
           noCodeIsChosen = true
         }else{
+
+
           if (button.classList.contains('bookButtonsWrong')) {
             return alert('Du har allerede gjettet denne lokasjonen. Prøv en lokasjon som ikke er rød.')
           }
-            this.setScore(guess);
-            this.addColorToButtons(button.id, guess);
-          
+        
+          this.setScore(guess);
+          this.addColorToButtons(button.id, guess);
+
         }
         this.displayScore();
+        if (allBooks.length === 0){
+          return this.runAndRenderCompletedCode();
+        }
       });
+    });
+  }
+
+  runAndRenderCompletedCode() {
+    this.htmlResult();
+    this.displayScore();
+    document.querySelector('.js-get-book-button').addEventListener('click',() => {
+      this.runCodeAndRenderPage();
     });
   }
 }

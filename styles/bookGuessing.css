@@ -3,7 +3,7 @@
   overflow: hidden;
   display: grid;
   grid-template-rows: 1fr 4fr 1fr;
-  height: 95%;
+  height: 80%;
   min-height: 500px;
   max-width: 600px;
   background-color: #8d0a73;
@@ -97,4 +97,9 @@
 }
 .get-book-button:hover{
   background-color: #c78b00;
+}
+.resultDisplay{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
 }
