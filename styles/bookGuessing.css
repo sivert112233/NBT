@@ -38,7 +38,6 @@
   background-color: #ffffff;
   overflow: hidden;
 }   
-
 .input-left-top,
 .input-left-bottom,
 .input-right-top,
@@ -70,21 +69,24 @@
   color: #000000;
   border: 0;
 }
-
 .bookButtons:hover{
   background-color: #c78b00;
 }
 .bookButtonsRight{
-  background-color: rgb(41, 176, 41);
+  background-color: rgb(16, 117, 16);
+  color: white;
 }
 .bookButtonsRight:hover{
-  background-color: rgb(41, 176, 41);
+  background-color: rgb(16, 117, 16);
+  color: white;
 }
 .bookButtonsWrong{
   background-color: rgb(201, 17, 17);
+  color: white;
 }
 .bookButtonsWrong:hover{
   background-color: rgb(201, 17, 17);
+  color: white;
 }
 .get-book-button{
   background-color: #ffb300;
@@ -98,8 +100,122 @@
 .get-book-button:hover{
   background-color: #c78b00;
 }
-.resultDisplay{
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
+
+
+
+
+
+
+
+
+
+
+
+
+
+.resultBookGuessing{
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 1fr 4fr 1fr;
+  height: 80%;
+  min-height: 500px;
+  max-width: 600px;
+  background-color: #8d0a73;
+  padding: 10px;
 }
+.resultColoreBox{
+  position: relative;
+  background-color: #ffffff;
+  height: 100%;
+}
+.resultOutput{
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #8d0a73;
+  color: white;
+}
+
+
+.resultInputs{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+} 
+
+.resultInput-left,
+.resultInput-right{
+  position: absolute;
+  top: 0;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  color: white;
+  background-color: #8d0a73;
+}  
+.resultResultDisplay{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+  width: 80%;
+  background-color: white;
+}
+.resultDisplayColorRight,
+.resultDisplayColorWrong{
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+}
+.resultDisplayColorRight{
+  background-color: rgb(16, 117, 16);
+}
+.resultDisplayColorWrong{
+  background-color: rgb(201, 17, 17);
+}
+
+.resultGet-book-box{
+  position: absolute;
+  top: 0;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #8d0a73;
+}
+
+.resultGet-book-button{
+  background-color: #ffffff;
+  color: #000000;
+  height: 50%;
+  width: 40%;
+  border: 0;
+  border-radius: 3px;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.485);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -26,8 +26,8 @@ export class GuessShelfLocation{
 
   displayScore(){
     return document.querySelector('.js-output-book-code-resulet').innerHTML = `
-    <p>Riktig: ${this.rightGuesses}</p>
-    <p>Feil: ${this.wrongGuesses}</p>
+    <p class="resultDisplayColorRight">Riktig: ${this.rightGuesses}</p>
+    <p class="resultDisplayColorWrong">Feil: ${this.wrongGuesses}</p>
     `;
   }
 
@@ -74,7 +74,8 @@ export class GuessShelfLocation{
     document.getElementById(buttonId).classList.remove('bookButtonsWrong');
     document.getElementById(buttonId).classList.remove('bookButtonsRight');
   }
-  htmlGuessing() {
+
+  runCodeAndRenderPage() {
     document.querySelector('main').innerHTML = `
       <section class="bookGuessing">
         <div class="output js-output-book-code-resulet"> 
@@ -82,9 +83,7 @@ export class GuessShelfLocation{
         </div>
         <div class="inputs">
           <div class="input-left">
-            <div class="degText">
               <p>Venstere Side</p>
-            </div>
             <div class="input-left-top">
               <button class="bookButtons bookButtonsL js-bookButtons" id="topLeftBack">53-04</button>
               <button class="bookButtons bookButtonsL js-bookButtons" id="topLeftFront">53-05(Ti/To)</button>
@@ -94,9 +93,7 @@ export class GuessShelfLocation{
             </div>
           </div>
           <div class="input-right">
-            <div class="degText">
               <p>Høyere Side</p>
-            </div>
             <div class="input-right-top">
               <button class="bookButtons bookButtonsR js-bookButtons" id="topRightFornt">53-02(Ti/To)</button>
               <button class="bookButtons bookButtonsR js-bookButtons" id="topRightMiddle">53-03(Ti/Fr)</button>
@@ -112,42 +109,7 @@ export class GuessShelfLocation{
         </div>
       </section>
     `;
-  }
-  htmlResult() {
-    document.querySelector('main').innerHTML = `
-      <section class="bookGuessing">
-        <div class="output "> 
-          <p>Hyllelokasjon er fullført</p>
-        </div>
-        <div class="inputs">
-          <div class="input-left">
-            <div class="degText">
-              <p><
-                Du har gjettet alle kodene.<br>
-                Se resultate dit i boksen under.<br>
-                Prøv igjen med og trykke på (Start på nytt).
-              </p>
-            </div>
-          </div>
-          <div class="input-right">
-            <div class="degText">
-              <p>Resultat</p>
-            </div>
-            <div class="resultDisplay js-output-book-code-resulet">
-            </div>
-          </div>
-        </div>
-        <div class="get-book-box js-get-book-box">
-          <button class="get-book-button js-get-book-button">Start på nytt</button>
-        </div>
-      </section>
-    `;
-  }
 
-
-
-  runCodeAndRenderPage() {
-    this.htmlGuessing();
     let guess = false; 
     let randomBook = undefined; 
     let noCodeIsChosen = true;
@@ -160,33 +122,30 @@ export class GuessShelfLocation{
         noCodeIsChosen = false; 
         randomBook = allBooks[Math.floor(Math.random() * allBooks.length)];
         allBooks.splice(allBooks.indexOf(randomBook),1);
-
-  
-
         document.querySelectorAll('.js-bookButtons').forEach((button) => {
           new GuessShelfLocation().removeColoreFromButtons(button.id); //--?--//
         });
         if (randomBook) {
           output.innerHTML = randomBook.toString().replace(/\B(?=(\d{4})+(?!\d))/g, " ");
-        }else{
-          output.innerHTML = 'Fullføret';
         }
       });  
     }addEventListenerToGetCodeButton();
 
     document.querySelectorAll('.js-bookButtons').forEach((button) => {
       button.addEventListener('click', () => {
+        console.log(allBooks.length);
+
         if (noCodeIsChosen){
           return alert('Velg Ny Kode.');
         }
-
-
         this.getLocation(button.id).forEach((i) => {
           if (randomBook === i) {
+            if (allBooks.length === 0) {
+              this.runAndRenderCompletedCode();
+            }
             return guess = true;
           };
         });
-
         if (guess){
           this.setScore(guess);
           this.addColorToButtons(button.id, guess);
@@ -194,30 +153,55 @@ export class GuessShelfLocation{
           addEventListenerToGetCodeButton();
           noCodeIsChosen = true
         }else{
-
-
           if (button.classList.contains('bookButtonsWrong')) {
             return alert('Du har allerede gjettet denne lokasjonen. Prøv en lokasjon som ikke er rød.')
           }
-        
           this.setScore(guess);
           this.addColorToButtons(button.id, guess);
-
         }
         this.displayScore();
-        if (allBooks.length === 0){
-          return this.runAndRenderCompletedCode();
-        }
       });
     });
   }
 
   runAndRenderCompletedCode() {
-    this.htmlResult();
+    document.querySelector('main').innerHTML = `
+      <section class="resultBookGuessing">
+        <div class="resultColoreBox"> 
+          <div class="resultOutput">  
+            <p>Hyllelokasjon er fullført</p>
+          </div>
+        </div>
+        <div class="resultInputs">
+            <div class="resultColoreBox">
+              <div class="resultInput-left">
+                <p>
+                  Du har gjettet alle kodene
+                </p>
+                <p>
+                  Se resultate dit i boksen under
+                </p>
+                <p>
+                  Prøv igjen med og trykke på (Start på nytt)
+                </p>
+              </div>
+            </div>
+            <div class="resultColoreBox">
+              <div class="resultInput-right">
+                <div class="resultResultDisplay js-output-book-code-resulet"> </div>
+              </div>
+            </div>
+          </div>
+        <div class="resultColoreBox">
+          <div class="resultGet-book-box">
+            <button class="resultGet-book-button js-get-book-button">
+              Start på nytt
+            </button>
+          </div>
+        </div>
+      </section>
+    `;
     this.displayScore();
-    document.querySelector('.js-get-book-button').addEventListener('click',() => {
-      this.runCodeAndRenderPage();
-    });
   }
 }
 
