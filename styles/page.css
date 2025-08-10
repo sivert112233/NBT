@@ -18,6 +18,9 @@
 .fixedTopLogo{
   height: 50%;
 }
+.fixedTopLogo:hover{
+  cursor: pointer;
+}
 .logo{
   height: 100%;
 }

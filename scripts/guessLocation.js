@@ -141,9 +141,10 @@ export class GuessShelfLocation{
         this.getLocation(button.id).forEach((i) => {
           if (randomBook === i) {
             if (allBooks.length === 0) {
+              this.setScore(!guess);
               this.runAndRenderCompletedCode();
             }
-            return guess = true;
+            guess = true;
           };
         });
         if (guess){
@@ -163,7 +164,6 @@ export class GuessShelfLocation{
       });
     });
   }
-
   runAndRenderCompletedCode() {
     document.querySelector('main').innerHTML = `
       <section class="resultBookGuessing">
@@ -202,6 +202,10 @@ export class GuessShelfLocation{
       </section>
     `;
     this.displayScore();
+    document.querySelector('.js-get-book-button').addEventListener('click', () => {
+      this.resetScore();
+      this.runCodeAndRenderPage();
+    });
   }
 }
 
