@@ -150,8 +150,9 @@ export class GuessShelfLocation{
         if (guess){
           this.setScore(guess);
           this.addColorToButtons(button.id, guess);
-          document.querySelector('.js-get-book-box').innerHTML = `<button class="get-book-button js-get-book-button">Ny Kode</button>`;
-          addEventListenerToGetCodeButton();
+          setTimeout(() => {
+            this.runCodeAndRenderPage();
+          },2000);
           noCodeIsChosen = true
         }else{
           if (button.classList.contains('bookButtonsWrong')) {
@@ -179,7 +180,7 @@ export class GuessShelfLocation{
                   Du har gjettet alle kodene
                 </p>
                 <p>
-                  Se resultate dit i boksen under
+                  Se resultate ditt i boksen under
                 </p>
                 <p>
                   Prøv igjen med og trykke på (Start på nytt)
