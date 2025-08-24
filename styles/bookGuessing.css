@@ -18,10 +18,10 @@
   background-color: #ffffff;
 }
 .inputs{
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  justify-content: space-evenly;
+  gap: 10px;
   background-color: light;
 }      
 .input-left,
@@ -29,11 +29,9 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  height: 95%;
   align-items: center;
-  justify-content: space-evenly;
-  height: 45%;
-  width: 100%;
-
+  justify-content: space-around;
   box-shadow:0px 0px 10px 1px #00000035;
   background-color: #ffffff;
   overflow: hidden;

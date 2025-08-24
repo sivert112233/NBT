@@ -1,5 +1,7 @@
 import {GuessShelfLocation} from "./guessLocation.js";
 
+new GuessShelfLocation().runCodeAndRenderPage();
+
 document.querySelector('.jsFixedTopLogo').addEventListener('click', () => {
   location.reload();
 });
