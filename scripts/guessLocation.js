@@ -144,7 +144,7 @@ export class GuessShelfLocation{
       button.addEventListener('click', () => {
         console.log(allBooks.length);
         if (noCodeIsChosen){
-          return alert('Velg Ny Kode.');
+          return alert('Vent på ny kode.');
         }
         this.getLocation(button.id).forEach((i) => {
           if (randomBook === i) {
