@@ -69,6 +69,15 @@
   color: #000000;
   border: 0;
 }
+.bookButtonsRight{
+  background-color: rgb(16, 117, 16);
+  color: white;
+}
+.bookButtonsWrong{
+  background-color: rgb(201, 17, 17);
+  color: white;
+}
+/*
 .bookButtons:hover{
   background-color: #c78b00;
 }
@@ -88,6 +97,7 @@
   background-color: rgb(201, 17, 17);
   color: white;
 }
+*/
 .get-book-button{
   background-color: #ffb300;
   color: #000000;

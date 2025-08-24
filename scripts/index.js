@@ -4,9 +4,6 @@ document.querySelector('.jsFixedTopLogo').addEventListener('click', () => {
   location.reload();
 });
 
-document.querySelector('.dropdownHome').addEventListener('click', () => {
-  location.reload();
-});
 
 document.querySelector('.dropdownHylle').addEventListener('click', () => {
   new GuessShelfLocation().runCodeAndRenderPage();
