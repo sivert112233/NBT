@@ -75,6 +75,14 @@ export class GuessShelfLocation{
     document.getElementById(buttonId).classList.remove('bookButtonsRight');
   }
 
+
+
+
+
+
+
+
+
   runCodeAndRenderPage() {
     document.querySelector('main').innerHTML = `
       <section class="bookGuessing">
@@ -109,32 +117,32 @@ export class GuessShelfLocation{
         </div>
       </section>
     `;
-
     let guess = false; 
     let randomBook = undefined; 
     let noCodeIsChosen = true;
     const allBooks = new BookLocationCodes().allBooks;
 
-    function addEventListenerToGetCodeButton() {
-      document.querySelector('.js-get-book-button').addEventListener('click', () => { 
-        const output = document.querySelector('.js-get-book-box');
-        guess = false;
-        noCodeIsChosen = false; 
-        randomBook = allBooks[Math.floor(Math.random() * allBooks.length)];
-        allBooks.splice(allBooks.indexOf(randomBook),1);
-        document.querySelectorAll('.js-bookButtons').forEach((button) => {
-          new GuessShelfLocation().removeColoreFromButtons(button.id); //--?--//
-        });
-        if (randomBook) {
-          output.innerHTML = randomBook.toString().replace(/\B(?=(\d{4})+(?!\d))/g, " ");
-        }
-      });  
-    }addEventListenerToGetCodeButton();
+    function getRandomBookAndResetColor() {
+      const output = document.querySelector('.js-get-book-box');
+      guess = false;
+      noCodeIsChosen = false; 
+      randomBook = allBooks[Math.floor(Math.random() * allBooks.length)];
+      allBooks.splice(allBooks.indexOf(randomBook),1);
+      document.querySelectorAll('.js-bookButtons').forEach((button) => {
+        new GuessShelfLocation().removeColoreFromButtons(button.id); //--?--//
+      });
+      if (randomBook) {
+        output.innerHTML = randomBook.toString().replace(/\B(?=(\d{4})+(?!\d))/g, " ");
+      }
+    }
+
+    document.querySelector('.js-get-book-button').addEventListener('click', () => { 
+      getRandomBookAndResetColor();
+    });  
 
     document.querySelectorAll('.js-bookButtons').forEach((button) => {
       button.addEventListener('click', () => {
         console.log(allBooks.length);
-
         if (noCodeIsChosen){
           return alert('Velg Ny Kode.');
         }
@@ -151,8 +159,8 @@ export class GuessShelfLocation{
           this.setScore(guess);
           this.addColorToButtons(button.id, guess);
           setTimeout(() => {
-            this.runCodeAndRenderPage();
-          },2000);
+            getRandomBookAndResetColor();
+          },1000);
           noCodeIsChosen = true
         }else{
           if (button.classList.contains('bookButtonsWrong')) {
@@ -165,6 +173,7 @@ export class GuessShelfLocation{
       });
     });
   }
+
   runAndRenderCompletedCode() {
     document.querySelector('main').innerHTML = `
       <section class="resultBookGuessing">
