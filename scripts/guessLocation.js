@@ -90,28 +90,46 @@ export class GuessShelfLocation{
           <p>Hyllelokasjon</p>
         </div>
         <div class="inputs">
+
+
+
+
           <div class="input-left">
-              <p>Venstere Side</p>
+            <p>Venstere Side</p>
+
             <div class="input-left-top">
-              <button class="bookButtons bookButtonsL js-bookButtons" id="topLeftBack">53-04</button>
-              <button class="bookButtons bookButtonsL js-bookButtons" id="topLeftFront">53-05(Ti/To)</button>
-            </div>
-            <div class="input-left-bottom"> 
-              <button class="bookButtons bookButtonsL js-bookButtons" id="bottomLeft">53-01</button>
+
+              <button class="bookButtons bookButtonsL js-bookButtons" id="bottomLeft"></button>
+
+              <div class="test-left">
+          
+                <button class="bookButtons bookButtonsL js-bookButtons" id="topLeftBack"></button>
+                <button class="bookButtons bookButtonsL js-bookButtons" id="topLeftFront"></button>
+
+              </div>
+
             </div>
           </div>
+
+
           <div class="input-right">
-              <p>Høyere Side</p>
+            <p>Høyere Side</p>
+            
             <div class="input-right-top">
-              <button class="bookButtons bookButtonsR js-bookButtons" id="topRightFornt">53-02(Ti/To)</button>
-              <button class="bookButtons bookButtonsR js-bookButtons" id="topRightMiddle">53-03(Ti/Fr)</button>
-              <button class="bookButtons bookButtonsR js-bookButtons" id="topRightBack">53-03(On/Fr)</button>
-            </div>
-            <div class="input-right-bottom">
-              <button class="bookButtons bookButtonsR js-bookButtons" id="bottomRight">53-02</button>
+              <div class="test-right">
+                <button class="bookButtons bookButtonsR js-bookButtons" id="topRightBack"></button>
+                <button class="bookButtons bookButtonsR js-bookButtons" id="topRightMiddle"></button>
+                <button class="bookButtons bookButtonsR js-bookButtons" id="topRightFornt"></button>
+              </div>
+              <button class="bookButtons bookButtonsR js-bookButtons" id="bottomRight"></button>
+
             </div>
           </div>
         </div>
+
+
+
+
         <div class="get-book-box js-get-book-box">
           <button class="get-book-button js-get-book-button">Få Kode</button>
         </div>

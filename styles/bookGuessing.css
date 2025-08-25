@@ -17,6 +17,10 @@
   height: 100%;
   background-color: #ffffff;
 }
+
+
+
+
 .inputs{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -40,19 +44,41 @@
 .input-left-bottom,
 .input-right-top,
 .input-right-bottom{
-  display: grid;
-  height: 40px;
-  width: 90%;
+  display: flex;
 }
 .input-left-top{
-  grid-template-columns: 2fr 1fr;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  height: 80%;
+
+}
+
+.test-left{
+  display: grid;
+  grid-template-rows: 2fr 1fr;
   gap: 10px;
 
 }
+
 .input-right-top{
-  grid-template-columns: 1.6fr 2fr 2fr;
-  gap: 10px;
+  gap: 50px;
+  height: 80%;
 }
+
+
+.test-right{
+  display: grid;
+
+  gap: 10px;
+
+}
+
+
+
+
+
+
 .get-book-box{
   display: flex;
   justify-content: center;
@@ -61,6 +87,7 @@
 }
 .bookButtons{
   height: 100%;
+  width: 30px;
   border-radius: 3px;
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.515);
   background-color: #ffb300;
